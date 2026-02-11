@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(npm --version:*)",
+      "Bash(node --version:*)",
+      "Bash(npx @nestjs/cli@latest new:*)",
+      "Bash(npm install:*)",
+      "Bash(README.md << 'READMEOF'\n# MindFlow Backend\n\nMindFlow 情绪觉察记录应用的服务端代码，基于 NestJS + PostgreSQL 构建。\n\n## 技术栈\n\n- **框架**: NestJS \\(Node.js 20 + TypeScript\\)\n- **数据库**: PostgreSQL 14 + TypeORM\n- **认证**: JWT \\(Access Token + Refresh Token\\)\n- **API 文档**: 基于 RESTful 设计\n- **部署**: Docker + Sealos \\(Kubernetes\\)\n\n## 核心功能\n\n- ✅ 用户认证（注册/登录/JWT 刷新）\n- ✅ 多设备管理（支持同时登录多个设备）\n- 🚧 情绪记录管理（CRUD + 乐观锁）\n- 🚧 AI 代理（Doubao ASR, Coze NVC 分析）\n- 🚧 数据同步（增量同步 + 冲突检测）\n- 🚧 周报洞察生成\n\n## 快速开始\n\n### 1. 环境准备\n\n确保已安装以下工具：\n- Node.js >= 20\n- Docker & Docker Compose\n- PostgreSQL 14 \\(或使用 Docker\\)\n\n### 2. 安装依赖\n\n```bash\nnpm install\n```\n\n### 3. 启动数据库\n\n使用 Docker Compose 启动 PostgreSQL：\n\n```bash\ndocker-compose up -d postgres\n```\n\n数据库会自动执行初始化脚本。\n\n### 4. 配置环境变量\n\n复制 `.env.example` 为 `.env` 并填入配置。\n\n### 5. 启动开发服务器\n\n```bash\nnpm run start:dev\n```\n\n服务将在 `http://localhost:3000/api/v1` 启动。\n\n## 许可证\n\nMIT License\nREADMEOF)",
+      "Bash(docker-compose up:*)",
+      "Bash(docker compose up:*)"
+    ]
+  }
+}

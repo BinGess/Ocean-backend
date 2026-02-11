@@ -1,0 +1,16 @@
+node_modules
+dist
+.env
+.env.local
+.git
+.gitignore
+README.md
+*.log
+coverage
+.nyc_output
+.cache
+.vscode
+.idea
+*.md
+!package.json
+!package-lock.json
