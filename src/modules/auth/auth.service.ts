@@ -197,8 +197,8 @@ export class AuthService {
       const newAccessToken = this.jwtService.sign(
         { sub: payload.sub, deviceId: payload.deviceId },
         {
-          secret: this.configService.get<string>('JWT_SECRET'),
-          expiresIn: this.configService.get<string>('JWT_EXPIRES_IN', '7d'),
+          secret: this.configService.get<string>('JWT_SECRET') || 'default-jwt-secret-please-change-in-production',
+          expiresIn: (this.configService.get<string>('JWT_EXPIRES_IN') || '7d') as any,
         },
       );
 
@@ -293,17 +293,14 @@ export class AuthService {
 
     // 生成 Access Token
     const accessToken = this.jwtService.sign(payload, {
-      secret: this.configService.get<string>('JWT_SECRET'),
-      expiresIn: this.configService.get<string>('JWT_EXPIRES_IN', '7d'),
+      secret: this.configService.get<string>('JWT_SECRET') || 'default-jwt-secret-please-change-in-production',
+      expiresIn: (this.configService.get<string>('JWT_EXPIRES_IN') || '7d') as any,
     });
 
     // 生成 Refresh Token
     const refreshToken = this.jwtService.sign(payload, {
-      secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
-      expiresIn: this.configService.get<string>(
-        'JWT_REFRESH_EXPIRES_IN',
-        '30d',
-      ),
+      secret: this.configService.get<string>('JWT_REFRESH_SECRET') || 'default-jwt-refresh-secret-please-change-in-production',
+      expiresIn: (this.configService.get<string>('JWT_REFRESH_EXPIRES_IN') || '30d') as any,
     });
 
     // 存储 Refresh Token

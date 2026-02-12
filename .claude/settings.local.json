@@ -10,7 +10,12 @@
       "Bash(docker-compose up:*)",
       "Bash(docker compose up:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(chmod:*)",
+      "Bash(./build-and-push.sh:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

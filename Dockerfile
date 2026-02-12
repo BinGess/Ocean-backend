@@ -5,9 +5,9 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# 复制 package 文件并安装依赖
+# 复制 package 文件并安装所有依赖（包括 devDependencies）
 COPY package*.json ./
-RUN npm ci --only=production && \
+RUN npm ci && \
     npm cache clean --force
 
 # 复制源代码
@@ -15,6 +15,9 @@ COPY . .
 
 # 构建应用
 RUN npm run build
+
+# 删除 devDependencies（只保留生产依赖）
+RUN npm prune --production
 
 # ============================================
 # Stage 2: 生产阶段

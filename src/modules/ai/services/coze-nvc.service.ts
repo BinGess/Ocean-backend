@@ -26,9 +26,9 @@ export class CozeNvcService {
     @InjectRepository(AiApiLog)
     private aiApiLogRepository: Repository<AiApiLog>,
   ) {
-    this.apiToken = this.configService.get<string>('COZE_API_TOKEN');
-    this.baseUrl = this.configService.get<string>('COZE_BASE_URL');
-    this.projectId = this.configService.get<string>('COZE_PROJECT_ID');
+    this.apiToken = this.configService.get<string>('COZE_API_TOKEN') || '';
+    this.baseUrl = this.configService.get<string>('COZE_BASE_URL') || 'https://api.coze.cn/v1';
+    this.projectId = this.configService.get<string>('COZE_PROJECT_ID') || '';
   }
 
   /**
